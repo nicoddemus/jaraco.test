@@ -3,7 +3,6 @@ try:
         wait_for_occupied_port, check_port)
 except ImportError:
     # borrowed from cherrypy==3.2.0rc1 (r2684)
-    import socket
     import time
     def client_host(server_host):
         """Return the host on which a client can connect to the given listener."""
@@ -46,41 +45,59 @@ except ImportError:
                 s.settimeout(timeout)
                 s.connect((host, port))
                 s.close()
-                raise IOError("Port %s is in use on %s; perhaps the previous "
-                              "httpserver did not shut down properly." %
-                              (repr(port), repr(host)))
             except socket.error:
                 if s:
                     s.close()
+            else:
+                raise IOError("Port %s is in use on %s; perhaps the previous "
+                              "httpserver did not shut down properly." %
+                              (repr(port), repr(host)))
 
-    def wait_for_free_port(host, port):
+    # Feel free to increase these defaults on slow systems:
+    free_port_timeout = 0.1
+    occupied_port_timeout = 1.0
+
+    def wait_for_free_port(host, port, timeout=None):
         """Wait for the specified port to become free (drop requests)."""
         if not host:
             raise ValueError("Host values of '' or None are not allowed.")
+        if timeout is None:
+            timeout = free_port_timeout
 
         for trial in range(50):
             try:
                 # we are expecting a free port, so reduce the timeout
-                check_port(host, port, timeout=0.1)
+                check_port(host, port, timeout=timeout)
             except IOError:
                 # Give the old server thread time to free the port.
-                time.sleep(0.1)
+                time.sleep(timeout)
             else:
                 return
 
         raise IOError("Port %r not free on %r" % (port, host))
 
-    def wait_for_occupied_port(host, port):
+    def wait_for_occupied_port(host, port, timeout=None):
         """Wait for the specified port to become active (receive requests)."""
         if not host:
             raise ValueError("Host values of '' or None are not allowed.")
+        if timeout is None:
+            timeout = occupied_port_timeout
 
         for trial in range(50):
             try:
-                check_port(host, port)
+                check_port(host, port, timeout=timeout)
             except IOError:
+                # port is occupied
                 return
             else:
-                time.sleep(.1)
+                time.sleep(timeout)
 
-        raise IOError("Port %r not bound on %r" % (port, host))
+        if host == client_host(host):
+            raise IOError("Port %r not bound on %r" % (port, host))
+
+        # On systems where a loopback interface is not available and the
+        #  server is bound to all interfaces, it's difficult to determine
+        #  whether the server is in fact occupying the port. In this case,
+        #  just issue a warning and move on. See issue #1100.
+        msg = "Unable to verify that the server is bound on %r" % port
+        warnings.warn(msg)
