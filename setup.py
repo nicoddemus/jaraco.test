@@ -13,11 +13,11 @@ setup_params = dict(
 	zip_safe=False,
 	install_requires=[
 		'jaraco.util',
+		'six',
 	],
 	setup_requires=[
 		'hgtools',
 	],
-	use_2to3=True,
 )
 if __name__ == '__main__':
 	setuptools.setup(**setup_params)
