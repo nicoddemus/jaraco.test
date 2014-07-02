@@ -21,6 +21,13 @@ class RequestsOverride(object):
         """
         >>> RequestsOverride.url('foo', 'bar')
         'http://test/foo/bar'
+        >>> RequestsOverride.url('foo', 'bar', '')
+        'http://test/foo/bar/'
+
+        Numbers are allowed:
+
+        >>> RequestsOverride.url('foo', '3')
+        'http://test/foo/3'
         """
         parts = [cls.url_base] + list(map(str, path_parts))
         return '/'.join(parts)
