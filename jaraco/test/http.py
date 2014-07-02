@@ -17,10 +17,12 @@ class RequestsOverride(object):
     responses = dict()
 
     @classmethod
-    def url(cls, *path_parts, trailing_slash=True):
+    def url(cls, *path_parts):
+        """
+        >>> RequestsOverride.url('foo', 'bar')
+        'http://test/foo/bar'
+        """
         parts = [cls.url_base] + list(map(str, path_parts))
-        if trailing_slash:
-            parts += ''
         return '/'.join(parts)
 
     def setup(self):
