@@ -24,6 +24,11 @@ setup_params = dict(
 		'pytest',
 		'mock',
 	],
+	entry_points={
+		'pytest11': [
+			'MongoDB = jaraco.test.mongodb',
+		],
+	}
 )
 if __name__ == '__main__':
 	setuptools.setup(**setup_params)
