@@ -12,7 +12,7 @@ def mongodb_instance():
 		instance = services.MongoDBInstance()
 		instance.log_root = ''
 		instance.start()
-		pymongo.Connection(instance.get_connect_hosts())
+		pymongo.MongoClient(instance.get_connect_hosts())
 		yield instance
 	except Exception:
 		pytest.skip("MongoDB not available")
