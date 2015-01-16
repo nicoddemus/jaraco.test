@@ -8,6 +8,8 @@ from . import services
 
 @pytest.yield_fixture(scope='session')
 def mongodb_instance():
+	if 'pymongo' not in globals():
+		pytest.skip("pymongo not available")
 	try:
 		instance = services.MongoDBInstance()
 		instance.log_root = ''
