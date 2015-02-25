@@ -5,8 +5,8 @@ import sys
 
 import setuptools
 
-needs_pytest = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
-pytest_runner = ['pytest_runner'] if needs_pytest else []
+needs_pytest = {'pytest', 'test'}.intersection(sys.argv)
+pytest_runner = ['pytest_runner>=2.1'] if needs_pytest else []
 
 setup_params = dict(
 	name='jaraco.test',
