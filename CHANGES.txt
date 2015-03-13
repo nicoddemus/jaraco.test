@@ -1,3 +1,8 @@
+2.0
+===
+
+Removed jaraco.test.socket_test. Use portend instead.
+
 1.9
 ===
 
