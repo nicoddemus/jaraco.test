@@ -1,0 +1,5 @@
+1.9
+===
+
+Improved MongoDBFinder to locate MongoDB in new canonical
+locations used by the MongoDB Windows Installer.
