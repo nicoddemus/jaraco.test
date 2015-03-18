@@ -29,6 +29,7 @@ setup_params = dict(
 		'path.py',
 		'jaraco.timing',
 		'jaraco.classes',
+		'portend',
 	],
 	setup_requires=[
 		'setuptools_scm',
