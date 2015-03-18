@@ -5,9 +5,6 @@
 import io
 import sys
 
-
-import sys
-
 import setuptools
 
 with io.open('README.txt', encoding='utf-8') as readme:
