@@ -1,3 +1,13 @@
+2.0.2
+=====
+
+Replace lingering reference to removed socket_test module.
+
+2.0.1
+=====
+
+Fix issue in MongoDB finder where MONGODB_HOME wasn't honored.
+
 2.0
 ===
 
