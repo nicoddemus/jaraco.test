@@ -30,6 +30,8 @@ setup_params = dict(
 		'jaraco.timing',
 		'jaraco.classes',
 		'portend',
+		# for compatibility (including pytest plugin)
+		'jaraco.mongodb',
 	],
 	setup_requires=[
 		'setuptools_scm',
@@ -46,11 +48,6 @@ setup_params = dict(
 		"Programming Language :: Python :: 2.7",
 		"Programming Language :: Python :: 3",
 	],
-	entry_points={
-		'pytest11': [
-			'MongoDB = jaraco.test.mongodb',
-		],
-	}
 )
 if __name__ == '__main__':
 	setuptools.setup(**setup_params)
