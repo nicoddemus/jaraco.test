@@ -31,7 +31,8 @@ setup_params = dict(
 		'jaraco.classes',
 		'portend',
 		# for compatibility (including pytest plugin)
-		'jaraco.mongodb',
+		'jaraco.mongodb>=2.6',
+		'jaraco.services',
 	],
 	setup_requires=[
 		'setuptools_scm',
