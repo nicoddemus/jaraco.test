@@ -1,5 +1,5 @@
 Welcome to jaraco.test documentation!
-========================================
+=====================================
 
 .. toctree::
    :maxdepth: 1
