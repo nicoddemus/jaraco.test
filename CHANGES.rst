@@ -1,3 +1,8 @@
+2.2
+===
+
+Moved hosting to Github.
+
 2.1
 ===
 
