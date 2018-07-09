@@ -1,3 +1,11 @@
+2.3
+===
+
+Deprecated the last module in this package (http) in
+favor of the
+`responses <https://pypi.org/project/responses>`_
+project.
+
 2.2
 ===
 

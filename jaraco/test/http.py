@@ -1,6 +1,10 @@
 import copy
+import warnings
 
 from mock import patch
+
+
+warnings.warn("Use the responses package", DeprecationWarning)
 
 
 class RequestsOverride(object):
