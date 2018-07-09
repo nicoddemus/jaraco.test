@@ -1,3 +1,4 @@
+# flake8: noqa
 # for compatibility
 from jaraco.mongodb.service import (
     MongoDBFinder,

@@ -2,6 +2,7 @@ import copy
 
 from mock import patch
 
+
 class RequestsOverride(object):
     """
     Override 'requests' API to override specific requests and fall back to
