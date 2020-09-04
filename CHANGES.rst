@@ -1,3 +1,8 @@
+3.0
+===
+
+Removed remaining modules.
+
 2.3
 ===
 
