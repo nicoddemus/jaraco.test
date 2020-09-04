@@ -3,6 +3,8 @@
 
 Removed remaining modules.
 
+Added pytest plugin for pytest-dev/pytest#7675.
+
 2.3
 ===
 
