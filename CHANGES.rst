@@ -1,5 +1,12 @@
-3.0
-===
+v3.1.0
+======
+
+#1: Added the "enabler" plugin with support for adding
+arbitrary options for plugins that are present. For
+pytest-dev/pytest#7675.
+
+v3.0.0
+======
 
 Removed remaining modules.
 
