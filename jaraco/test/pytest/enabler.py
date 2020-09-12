@@ -25,8 +25,8 @@ def read_plugins(filename):
     return defn["tool"]["jaraco"]["pytest"]["plugins"]
 
 
-def pytest_configure(config):
+def pytest_load_initial_conftests(early_config, parser, args):
     plugins = read_plugins('pyproject.toml')
-    matches = filter(config.pluginmanager.has_plugin, plugins)
+    matches = filter(early_config.pluginmanager.has_plugin, plugins)
     for match in matches:
-        config.args.extend(shlex.split(plugins[match].get('addopts', "")))
+        args.extend(shlex.split(plugins[match].get('addopts', "")))

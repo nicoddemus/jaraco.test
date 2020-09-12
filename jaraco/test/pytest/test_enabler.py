@@ -28,6 +28,6 @@ def test_pytest_addoption(tmpdir_cur):
     )
     config = mock.MagicMock()
     config.pluginmanager.has_plugin = lambda name: name == 'black'
-    config.args = ['previous', 'args']
-    enabler.pytest_configure(config)
-    assert config.args[2:] == ['--black']
+    args = []
+    enabler.pytest_load_initial_conftests(config, None, args)
+    assert args == ['--black']

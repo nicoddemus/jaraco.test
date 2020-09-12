@@ -1,3 +1,9 @@
+v3.1.1
+======
+
+Changed enabler plugin to run at ``pytest_load_initial_conftests``
+hook.
+
 v3.1.0
 ======
 
