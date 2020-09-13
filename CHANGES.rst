@@ -1,3 +1,9 @@
+v3.2.0
+======
+
+Add a hack around pytest-cov to enable support for configuring it
+in the enabler plugin.
+
 v3.1.1
 ======
 
