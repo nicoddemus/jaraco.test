@@ -1,3 +1,8 @@
+v4.0.0
+======
+
+Remove pytest plugin added in 3.0.
+
 v3.2.0
 ======
 
