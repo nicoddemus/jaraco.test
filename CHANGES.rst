@@ -1,3 +1,9 @@
+v4.0.1
+======
+
+#2: In enabler, remove third-party packages from sys.modules
+to avoid spurious non-coverage of lines covered at import time.
+
 v4.0.0
 ======
 
