@@ -1,3 +1,9 @@
+v5.0.0
+======
+
+Moved enabler to
+`pytest-enabler <https://pypi.org/project/pytest-enabler>`_.
+
 v4.0.1
 ======
 
