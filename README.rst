@@ -19,11 +19,3 @@
 
 .. image:: https://img.shields.io/badge/skeleton-2022-informational
    :target: https://blog.jaraco.com/skeleton
-
-Plugins
-=======
-
-The 'enabler' plugin allows configuration of plugins if present, but omits the settings if the plugin is not present. For example, to configure black to be enabled if the plugin is present, but not when it is not, add the following to your pyproject.toml::
-
-    [jaraco.test.pytest.plugins.black]
-    addopts = "--black"
