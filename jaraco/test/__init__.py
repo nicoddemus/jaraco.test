@@ -17,7 +17,9 @@ def property_error(name):
     """
     class_, property_ = name.split('.')
     return (
-        f"can't set attribute {property_!r}"
+        "can't set attribute"
+        if sys.version_info < (3, 10)
+        else f"can't set attribute {property_!r}"
         if sys.version_info < (3, 11)
         else f"property {property_!r} of {class_!r} object has no setter"
     )
