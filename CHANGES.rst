@@ -1,3 +1,8 @@
+v5.1.0
+======
+
+Added ``property_error`` function for testing a property error.
+
 v5.0.0
 ======
 
