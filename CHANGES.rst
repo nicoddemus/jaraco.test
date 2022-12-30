@@ -1,3 +1,9 @@
+v5.2.0
+======
+
+Added pytest fixture ``needs_internet`` to skip tests that require
+HTTP connectivity.
+
 v5.1.0
 ======
 
