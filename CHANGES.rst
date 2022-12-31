@@ -1,3 +1,9 @@
+v5.3.0
+======
+
+#5: Plugin now honors the ``network`` marker convention for
+tagging network-required tests.
+
 v5.2.0
 ======
 

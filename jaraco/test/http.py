@@ -19,3 +19,20 @@ def check_internet():
 @pytest.fixture
 def needs_internet():
     check_internet()
+
+
+def pytest_configure(config):
+    """
+    Register the 'network' marker.
+    """
+    config.addinivalue_line(
+        "markers", "network: the test requires network connectivity"
+    )
+
+
+def pytest_runtest_setup(item):
+    """
+    For any tests marked with 'network', install fixture.
+    """
+    for marker in item.iter_markers(name='network'):
+        item.fixturenames.extend({'needs_internet'} - set(item.fixturenames))
