@@ -7,17 +7,29 @@ from jaraco.context import ExceptionTrap
 
 @jaraco.functools.once
 def has_internet():
+    """
+    Is this host able to reach the Internet?
+
+    Return True if the internet appears reachable and False
+    otherwise.
+    """
     with ExceptionTrap() as trap:
         urllib.request.urlopen('http://pypi.org')
     return not trap
 
 
 def check_internet():
+    """
+    (pytest) Skip if internet is unavailable.
+    """
     has_internet() or pytest.skip('Internet connectivity unavailable')
 
 
 @pytest.fixture
 def needs_internet():
+    """
+    Pytest fixture signaling that internet is required.
+    """
     check_internet()
 
 

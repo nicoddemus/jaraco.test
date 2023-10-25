@@ -20,3 +20,6 @@
 
 .. image:: https://img.shields.io/badge/skeleton-2023-informational
    :target: https://blog.jaraco.com/skeleton
+
+
+This package provides functions and fixtures for facilitating tests.
