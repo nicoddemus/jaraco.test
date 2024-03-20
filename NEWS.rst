@@ -1,3 +1,12 @@
+v5.4.0
+======
+
+Features
+--------
+
+- Added cpython module with support for loading functions across moves.
+
+
 v5.3.0
 ======
 
